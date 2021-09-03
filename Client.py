@@ -77,6 +77,20 @@ def stop():
     mixer.music.load('shared_files/'+song_selected)
     mixer.music.pause()
     infoLabel.configure(text="")
+    
+def pause():
+    global song_selected
+    pygame
+    mixer.init()
+    mixer.music.load('shared_files/'+song_selected)
+    mixer.music.pause()
+
+def resume():
+    global song_selected
+    mixer.init()
+    mixer.music.load('shared_files/'+song_selected)
+    mixer.music.play() 
+   
   
 def download():    
     song_to_download=listbox.get(ANCHOR)
@@ -137,6 +151,13 @@ def musicWindow():
     
     Stop=Button(window,text="Stop",bd=1,width=10,bg='SkyBlue', font = ("Calibri",10), command = stop)
     Stop.place(x=200,y=200)
+    
+     ResumeButton=Button(window,text="Resume", width=10,bd=1,bg='SkyBlue',font = ("Calibri",10), command = resume)
+    ResumeButton.place(x=30,y=250)
+
+    PauseButton=Button(window,text="Pause", width=10,bd=1,bg='SkyBlue',font = ("Calibri",10), command = pause)
+    PauseButton.place(x=200,y=250)
+
     
     Upload=Button(window,text="Upload",width=10,bd=1,bg='SkyBlue', font = ("Calibri",10), command = browseFiles)
     Upload.place(x=30,y=250)
